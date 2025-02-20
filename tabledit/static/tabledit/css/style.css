@@ -1,0 +1,528 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0px;
+    font-family: sans-serif;
+}
+
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 4px;
+    background: #EEEEEE;
+}
+::-webkit-scrollbar-thumb {
+    background: #466acd;
+    border-radius: 2px;
+}
+
+
+
+
+/* Menu Bar Starts Here */
+.menu_bar{
+    height: 8rem;
+    width: 100vw;
+    background-color:#001F75;
+    display: flex;
+}
+
+.font_family_input{
+    margin-top: 1.4rem;
+    margin-left:2rem;
+    border-top-left-radius:8px;
+    border-bottom-left-radius:8px;
+    border-top-right-radius:8px;
+    border-bottom-right-radius:8px;
+    text-align: center;
+    position: relative;
+    top: 32px;
+}
+.font_size_input{
+    border-top-right-radius:8px;
+    border-bottom-right-radius:8px;
+    border-top-left-radius:8px;
+    border-bottom-left-radius:8px;
+    width: 4.375rem;
+    position: relative;
+    top: 32px;
+}
+.new_open_save_container{
+    display: flex;
+    height: 40%;
+    width: 8rem;
+    margin-top: 1.4rem;
+    margin-left: 1rem;
+    background-color: #ffffff;
+    border-radius: 50px;
+    justify-content: space-evenly;
+}
+.icon_container>.fas{
+    margin-top: 0.4rem;
+    font-size: 2rem;
+    color: #001F75;
+}
+.icon_container>.fa{
+    margin-top: 0.4rem;
+    font-size: 2rem;
+    color: #001F75;
+}
+.icon_container>.fa:hover{
+    color: #466acd;
+}
+.icon_container>.fas:hover{
+    color: #466acd;
+}
+.alignment_container {
+    display: flex;
+    height: 14%;
+    width: 8.5rem;
+    margin-top: 3.2rem;
+    margin-left: -13.2rem;
+    background-color: #ffffff;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    justify-content: space-evenly;
+    padding-top: 0.1rem;
+    font-size: 13px;
+    position: relative;
+    top: 28px;
+}
+.bui_container {
+    display: flex;
+    height: 14%;
+    width: 4.4rem;
+    margin-top: 3.2rem;
+    margin-left: 0.3rem;
+    background-color: #ffffff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+     border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    justify-content: space-evenly;
+    padding-top: 1.5px;
+    font-size: 13px;
+     position: relative;
+    top: 28px;
+}
+
+.color_container {
+    display: flex;
+    height: 15%;
+    width: 1.8rem;
+    margin-top: 1.2rem;
+    margin-left: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    font-size: 14px;
+    align-items: flex-start;
+    position: relative;
+    top: 34px;
+    right: 4px;
+}
+.color_container>.fas{
+    padding-top: 4px;
+    padding-left: 6px;
+}
+.color_container>input{
+    visibility: hidden;
+    width: 0;
+    border: none;
+}
+.color_containers {
+    display: flex;
+    height: 15%;
+    width: 1.8rem;
+    margin-top: 1.2rem;
+    margin-left: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    font-size: 14px;
+    align-items: flex-start;
+    position: relative;
+    top: 58px;
+    right: 42px;
+}
+.color_containers>.fas{
+    padding-top: 4px;
+    padding-left: 6px;
+}
+.color_containers>input{
+    visibility: hidden;
+    width: 0;
+    border: none;
+}
+
+.addgrid_container {
+    display: flex;
+    height: 40%;
+    width: 5rem;
+    margin-top: 1.3rem;
+    margin-left: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    justify-content: space-evenly;
+    font-size: 22px;
+}
+.addgrid_container>.fa{
+    padding-top: 14px;
+    padding-left: 5px;
+}
+.selected{
+    padding-left: 2px;
+    padding-right: 2px;
+    border: 1px solid black;
+    color: rgb(255, 255, 255);
+    background-color: #108d5f;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px solid blue;
+}
+
+
+
+
+
+/* Formula Bar Starts Here */
+.formula_bar{
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #001F75;
+}
+.formula_bar>img{
+    padding: 0.1rem;
+    background-color: #001F75;
+}
+.formula_bar>div{
+    margin-left:0.5rem;
+    margin-right: 0.5rem;
+}
+.formula_bar>*{
+    height: 70%;
+     border-top-left-radius:8px;
+    border-bottom-left-radius:8px ;
+     border-top-right-radius:8px;
+    border-bottom-right-radius:8px ;
+}
+.address_input{
+    border-top-left-radius:8px;
+    border-bottom-left-radius:8px ;
+     border-top-right-radius:8px;
+    border-bottom-right-radius:8px ;
+    width: 4rem;
+    text-align: center;
+    outline: none;
+    color: #000000;
+}
+.formula_input{
+    border-top-right-radius:8px;
+    border-bottom-right-radius:8px ;
+    border-top-left-radius:8px;
+    border-bottom-left-radius:8px ;
+    width: 100%;
+    outline: none;
+}
+
+
+
+/* Grid Container Starts Here */
+/* Grid Container Starts Here */
+.grid_container {
+    background-color: white;
+    height: calc(100vh - 9.5rem);
+    overflow: auto; /* Включаем горизонтальный и вертикальный скролл */
+    position: relative;
+}
+
+.top_row {
+    display: inline-flex;
+    position: relative;
+    top: -1.5rem;
+    left: 2.1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    overflow-x: auto; /* Включаем горизонтальный скролл для заголовков */
+    white-space: nowrap; /* Предотвращаем перенос строк */
+}
+
+.top_row .cell {
+    background-color: #EEEEEE;
+    text-align: center;
+    padding: 0;
+    height: 24px;
+    width: 100px;
+    min-width: 100px;
+}
+
+.grid .cell {
+    width: 100px;
+    min-width: 100px;
+    border-left: 0px;
+    border-top: 0px;
+}
+
+.left_col {
+    background-color: #EEEEEE;
+    width: 2rem;
+    text-align: center;
+    position: relative;
+    top: -1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.cell {
+    border: 0.1px solid rgb(53, 53, 53);
+    border-radius: 3px;
+    height: 1.5rem;
+    min-height: 1.5rem;
+    text-align: center;
+    outline-color: #001F75;
+    align-content: center;
+}
+
+.top_left_cell {
+    height: 1.5rem;
+    width: 2.1rem;
+    background-color: #EEEEEE;
+    border-right: 3px solid #001F75;
+    border-bottom: 2px solid #001F75;
+    border-radius: 3px;
+}
+
+.row{
+    display: flex;
+}
+/* .grid .cell{
+    min-width: 5rem;
+    border-left: 0px;
+    border-top: 0px;
+} */
+.grid_container{
+    position: relative;
+}
+.grid{
+    position: absolute;
+    left: 2.1rem;
+    top: 1.5rem;
+    overflow-x: auto; /* Включаем горизонтальный скролл для сетки */
+}
+
+/* Класс для выделенной ячейки */
+.active {
+    border: 2px solid #001F75;
+    background-color: #e9f7fd;
+}
+
+
+
+/* Sheets Container Starts Here */
+.sheet_container{
+    background-color: #001F75;
+    height: 2.5rem;
+    display: flex;
+    color :white;
+    font-size: 10px;
+}
+.add-sheet_container{
+    height: 100%;
+    min-width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newSheet{
+    font-size: 1.3rem;
+}
+.newSheet:hover{
+    font-size: 1.5rem;
+}
+.sheets-list{
+    display: flex;
+    height: 100%;
+    overflow-x: auto;
+}
+.sheets-list{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.sheet{
+    min-width: 60px;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001F75;
+    border: 1px solid #001F75;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.sheet.active-sheet {
+    border: 2px solid white;
+    background-color: #001F75; /* или любой другой цвет для выделенного листа */
+}
+
+.context-menu {
+    position: absolute; /* Обязательно используем absolute, чтобы меню появлялось там, где указано в JS */
+    display: none;
+    background-color: #001F75;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 0px;
+    z-index: 100;
+}
+
+.context-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.context-menu ul li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.context-menu ul li:hover {
+    background-color: #001F75;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .new_open_save_container{
+        width: 5rem;
+        height: 40%;
+        margin-left: 0.1rem;
+    }
+    .icon_container>.fas{
+        margin-top: 0.3rem;
+        font-size: 1.4rem;
+    }
+    .font_family_input{
+        margin-top: 1.1rem;
+        margin-left:0.5rem;
+        width: 5rem;
+    }
+    .font_size_input{
+        width: 4rem;
+    }
+    .alignment_container{
+        width: 5rem;
+        margin-left:-9.3rem;
+        margin-top: 2.8rem;
+    }
+    .bui_container{
+        width: 4rem;
+        margin-top: 2.8rem;
+    }
+    .color_container{
+        margin-top: 1.8rem;
+        width: 4.5rem;
+        height: 30%;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+    .new_open_save_container{
+        width: 4rem;
+        height: 35%;
+        margin-left: 0.1rem;
+    }
+    .icon_container>.fas{
+        margin-top: 0.3rem;
+        font-size: 1.2rem;
+        color: #001F75;
+    }
+    .font_family_input{
+        margin-top: 0.3rem;
+        margin-left:0.5rem;
+        width: 3.5rem;
+    }
+    .font_size_input{
+        width: 3.5rem;
+    }
+    .alignment_container{
+        width: 3.5rem;
+        margin-left:-7.3rem;
+        margin-top: 2rem;
+        font-size: 0.7rem;
+    }
+    .bui_container{
+        width: 3.5rem;
+        margin-top: 2rem;
+    }
+    .color_container{
+        margin-top: 3.8rem;
+        margin-left: -5.5rem;
+        width: 4.5rem;
+        height: 25%;
+        font-size: 1rem;
+    }
+    .color_container>i{
+        padding-top: 2px;
+    }
+
+  }
+
+.up-container {
+    position: absolute; /* Абсолютное позиционирование для контейнера */
+    top: 20px; /* Расположение от верхнего края */
+    right: 20px; /* Расположение от правого края */
+    display: flex; /* Используем Flexbox для размещения блоков горизонтально */
+    align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.up-item {
+    background-color: #f0f0f0; /* Светлый фон */
+    border: 2px solid #001F75; /* Синяя рамка */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 3px 6px; /* Уменьшенные внутренние отступы */
+    color: #333; /* Темный цвет текста */
+    margin-left: 5px; /* Отступы между кнопками, чтобы они не соприкасались */
+    max-width: 200px; /* Уменьшенная максимальная ширина блока для компактности */
+    font-size: 14px; /* Уменьшен размер шрифта для текста */
+}
+
+.up-item a {
+    color: #001F75; /* Цвет ссылок */
+    text-decoration: none; /* Убрано подчеркивание */
+    font-weight: bold; /* Жирный текст для ссылок */
+}
+
+.up-item a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.up-item i {
+    font-size: 12px; /* Уменьшенный размер шрифта для имени пользователя */
+    font-weight: normal; /* Нормальная жирность для имени пользователя */
+}
+
+.cell.selected {
+    background-color: lightblue;
+    border: 1px solid #1d4ed8;
+}
+
+
+@media (max-width: 600px) {
+    .up-container {
+        flex-direction: column; /* Меняем на вертикальное направление для маленьких экранов */
+        align-items: flex-start; /* Левое выравнивание при вертикальном расположении */
+    }
+
+    .up-item {
+        margin-left: 0; /* Убираем отступы между кнопками на маленьких экранах */
+        margin-top: 5px; /* Отступ сверху для вертикального расположения */
+    }
+
+    .up-item a {
+        font-size: 12px; /* Уменьшаем шрифт для маленьких экранов */
+    }
+}

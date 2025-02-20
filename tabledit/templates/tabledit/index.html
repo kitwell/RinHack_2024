@@ -1,0 +1,279 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tedo</title>
+    <script src="https://kit.fontawesome.com/ce63ad5eab.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <link type="image/x-icon" href="{% static 'tabledit/images/favicon.ico' %}" rel="shortcut icon"/>
+    <link rel="stylesheet" href="{% static 'tabledit/css/style.css' %}">
+
+</head>
+
+<body>
+    <!-- Menu Bar -->
+    <div class="menu_bar">
+        <!-- New Open Save -->
+        {% if request.user.is_authenticated %}
+        <div class="new_open_save_container">
+             <div class="icon_container">
+                <i class="fas fa-external-link-square-alt"></i>
+                <input type="file" class="open_input" style="display: none;">
+            </div>
+            <div class="icon_container">
+                <i class="fa fa-file-code-o"></i>
+            </div>
+
+            <div class="icon_container">
+                <i class="fa fa-file-excel-o"></i>
+            </div>
+        </div>
+        {% else %}
+        <div class="new_open_save_container">
+            <div class="icon_container" style="font-size: 2rem; margin-top: 0.4rem">
+                <a href="{% url 'login' %}" title="Открыть файл JSON">
+                    <i style="color: #001F75" class="fas fa-external-link-square-alt"></i>
+                </a>
+                <input class="open_input" style="display: none;">
+            </div>
+            <div class="icon_container" style="font-size: 2rem; margin-top: 0.4rem">
+                <a href="{% url 'login' %}" title="Сохранить файл">
+                    <i style="color: #001F75" class="fa fa-file-o"></i>
+                </a>
+            </div>
+            <div class="icon_container" style="font-size: 2rem; margin-top: 0.4rem">
+                <a href="{% url 'login' %}" title="Сохранить файл">
+                    <i style="color: #001F75" class="fa fa-file-o"></i>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Font Family and size -->
+        <div class="formating_container">
+            <select class="font_family_input">
+                <option value="Arial" style="font-family:arial;">Arial</option>
+                <option value="Brush Script MT" style="font-family:Brush Script MT;">Brush Script MT</option>
+                <option value="Garamond" style="font-family:Garamond;">Garamond</option>
+                <option value="Helvetica" style="font-family:Helvetica;">Helvetica</option>
+                <option value="Papyrus" style="font-family:Papyrus;">Papyrus</option>
+                <option value="Tahoma" style="font-family:Tahoma;">Tahoma</option>
+                <option value="Times New Roman" style="font-family:Times New Roman">Times New Roman</option>
+                <option value="veranda" style="font-family:veranda;">Veranda</option>
+            </select>
+            <select class="font_size_input">
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        <!-- alignment -->
+        <div class="alignment_container">
+            <i class="fas fa-align-left left" value="left"></i>
+            <i class="fas fa-align-center center" value="center"></i>
+            <i class="fas fa-align-right right" value="right"></i>
+            <i class="fas fa-align-justify justify" value="justify"></i>
+        </div>
+        <!-- Bold Italic Underline -->
+        <div class="bui_container">
+            <i class="fas fa-bold" value = "b"></i>
+            <i class="fas fa-italic" value = "b"></i>
+            <i class="fas fa-underline" value = "b"></i>
+        </div>
+        <!-- Color -->
+        <div class="color_container">
+            <i class="fas fa-fill-drip"></i>
+            <input type="color" class="background_color">
+        </div>
+        <div class="color_containers">
+            <i class="fas fa-font"></i>
+            <input type="color" class="text_color">
+        </div>
+        <div class="addgrid_container">
+            <i class="fa fa-arrow-circle-down"></i>
+            <i class="fa fa-arrow-circle-right"></i>
+        </div>
+    </div>
+
+
+    <!-- Formula Bar -->
+     <div class="formula_bar">
+        <input type="text" class="address_input" placeholder="A1" readonly="True">
+        <img src="{% static 'tabledit/images/fx.png' %}">
+        <input type="" class="formuls" list="formuls-list" placeholder="Выбрать формулу">
+        <datalist id="formuls-list">
+            <option value="=СУММ">
+            <option value="=СРЗНАЧ">
+            <option value="=МАКС">
+            <option value="=МИН">
+        </datalist>
+        <input type="text" class="formula_input" placeholder="Формула">
+    </div>
+
+
+    <div class="up-container">
+         {% if request.user.is_authenticated %}
+        <form style="
+         background-color: #f9f9f9; /* Цвет фона формы */
+         margin: 0; /* Убираем внешние отступы */
+         border: 1px solid #ccc; /* Граница */
+         border-radius: 20px; /* Закругленные углы */
+         max-width: 800px; /* Максимальная ширина формы */
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для эффекта */
+         position: relative; /* Позволяет использовать свойство top и left */
+         right: 200px; /* Сдвинуть форму вправо на 20px */
+         display: flex; /* Используем Flexbox */
+         justify-content: space-between; /* Равномерное распределение */
+         align-items: center; /* Центрируем по вертикали */"
+         method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+         <button type="submit" style="
+          background-color: #001F75; /* Цвет кнопки */
+          color: white; /* Цвет текста кнопки */
+          border: none; /* Без границы */
+           border-radius: 5px; /* Закругленные углы */
+           cursor: pointer; /* Курсор в виде руки */
+           padding: 2px 2px; /* Внутренние отступы */">Сохранить файл</button>
+        </form>
+        <select id="fileSelect" onchange="downloadFile()" style="
+    padding: 8px; /* Отступы внутри поля */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 5px; /* Закругленные углы */
+    width: 150px; /* Ширина селекта */
+    font-size: 12px; /* Размер шрифта */
+">
+    <option value="" disabled selected>Выберите файл</option>
+    {% for file in files %}
+        <option value="{{ file.file.url }}">{{ file.file.name }}</option>
+    {% empty %}
+        <option value="" disabled>Нет загруженных файлов</option>
+    {% endfor %}
+</select>
+
+<script>
+    function downloadFile() {
+        var select = document.getElementById("fileSelect");
+        var fileUrl = select.value;
+
+        if (fileUrl) {
+            // Открытие файла при выборе его из списка
+            openFile(fileUrl);
+        }
+    }
+
+    function openFile(url) {
+        // Проверяем расширение файла, чтобы открыть его соответствующим образом
+        if (url.endsWith(".json")) {
+            // Загрузка JSON файла
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    let JSONdata = JSON.parse(data);
+                    sheetsDB = JSONdata;
+                    db = sheetsDB[0];
+                    setUI();
+                    setSheets();
+                })
+                .catch(error => console.error('Ошибка загрузки JSON:', error));
+        } else if (url.endsWith(".xlsx")) {
+            // Загрузка XLSX файла
+            fetch(url)
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    let workbook = XLSX.read(data, { type: 'array' });
+                    sheetsDB = []; // Очищаем основной массив для новых данных
+                    workbook.SheetNames.forEach(sheetName => {
+                        let sheet = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
+                        let dbSheet = sheet.map(row => row.map(cell => ({
+                            value: cell || "",
+                            color: "",
+                            backgroundColor: "",
+                            fontFamily: "Arial",
+                            fontSize: 16,
+                            halign: "center",
+                            underline: false,
+                            bold: false,
+                            italic: false,
+                            formula: "",
+                            children: []
+                        })));
+                        sheetsDB.push(dbSheet); // Добавляем весь лист в sheetsDB
+                    });
+
+                    db = sheetsDB[0]; // Устанавливаем текущую базу данных
+                    setUI(); // Обновляем интерфейс
+                    setSheets(); // Отображаем листы в UI
+                })
+                .catch(error => console.error('Ошибка загрузки XLSX:', error));
+        } else {
+            // Если файл другого формата, можно добавить обработку или сообщение
+            alert("Файл не поддерживается.");
+        }
+    }
+</script>
+        {% endif %}
+
+        {% if request.user.is_authenticated %}
+        <div class="up-item login-item">
+            <p style="color: #001F75;">{{ user.username }}</p>
+        </div>
+        <div class="up-item register-item">
+            <p><a href="{% url 'logout' %}">Выйти</a></p>
+        </div>
+        {% else %}
+        <div class="up-item login-item">
+            <p><a href="{% url 'login' %}">Войти</a></p>
+        </div>
+        <div class="up-item register-item">
+            <p><a href="{% url 'register' %}">Зарегистрироваться</a></p>
+        </div>
+        {% endif %}
+    </div>
+
+
+
+    <!-- grid -->
+    <div class="grid_container">
+        <div class="top_left_cell"></div>
+        <div class="top_row">
+        </div>
+        <div class="left_col">
+        </div>
+        <div class="grid"></div>
+    </div>
+
+
+    <div id="context-menu" class="context-menu">
+        <ul>
+            <li id="delete-sheet">Удалить лист</li>
+        </ul>
+    </div>
+
+    <!-- Sheets Container -->
+    <div class="sheet_container">
+        <div class="add-sheet_container">
+            <i class="far fa-plus-square newSheet"></i>
+        </div>
+        <div class="sheets-list">
+            <div class="sheet active-sheet" sheetIdx="1">Лист 1</div>
+        </div>
+    </div>
+    <script src="{% static 'tabledit/js/init.js' %}"></script>
+    <script src="{% static 'tabledit/js/menu.js' %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.1/xlsx.full.min.js"></script>
+    <script src="{% static 'tabledit/js/nos.js' %}"></script>
+    <script src="{% static 'tabledit/js/formula.js' %}"></script>
+    <script src="{% static 'tabledit/js/sheets.js' %}"></script>
+</body>
+
+</html>
