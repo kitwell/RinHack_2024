@@ -1,3 +1,4 @@
+# RinHack 2024
 ![photo_2025-02-19_17-21-12](https://github.com/user-attachments/assets/3c2490bd-1f83-4024-97a6-fc7c4480d501)
 ![Снимок экрана 2025-02-19 172224](https://github.com/user-attachments/assets/7ab40711-2dc1-47da-880e-af6b1b7ffa23)
 ![Снимок экрана 2025-02-19 172244](https://github.com/user-attachments/assets/9ce200e3-3bf7-42d8-8e69-b783c4614515)
